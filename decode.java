@@ -1,5 +1,5 @@
 import java.util.*;
-class encode
+class decode
 {
     public static void main(String[] args)
     {
@@ -8,13 +8,9 @@ class encode
         String buffer = new String();
         for(String s: args)
         {
-            for(int i = 0; i < s.length(); i++)
-            {
-                buffer = morse[Arrays.asList(latin).indexOf(s.split("")[i])];
-                System.out.printf(buffer);
-                if(i + 1 != s.length()) System.out.printf(" ");
-            }
-            System.out.printf(" / ");
+            if(s != "decode")
+            buffer = latin[Arrays.asList(morse).indexOf(s)];
+            System.out.printf(buffer);
         }
     }
 }
