@@ -6,7 +6,7 @@ class learner
     static String[] morse = {".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--..","-----",".----","..---","...--","....-",".....","-....","--...","---..","----.","--..--",".-.-.-"};
     static String[] latin = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","0","1","2","3","4","5","6","7","8","9",",","."};
     static Boolean hard = false;
-    static int number = morse.length;
+    static int number = morse.length, incorrect = 0;
     public static void main(String[] args)
     {
         if(Arrays.asList(args).contains("-h"))
@@ -57,9 +57,10 @@ class learner
                 System.out.printf(in + " is incorrect.");
                 if(!hard) System.out.printf("Try: " + morse[i] + "\n");
                 else System.out.printf("\n");
-                i--;
+                incorrect++;
             }
         }
+        System.out.println("Score: " + (number-incorrect)*100/number);
         keyboard.close();
     }
 }
