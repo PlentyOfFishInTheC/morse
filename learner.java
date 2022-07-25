@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.concurrent.ThreadLocalRandom;
 class learner
 {
     public static void main(String[] args)
@@ -8,7 +9,16 @@ class learner
         Scanner keyboard = new Scanner(System.in);
         for(int i = 0; i < morse.length; i++)
         {
-            System.out.printf(latin[i] + " - ");
+            System.out.println(latin[i]);
+            int temp,temp2;
+            for(;;)
+            {
+                temp = ThreadLocalRandom.current().nextInt(0, morse.length + 1);
+                temp2 = ThreadLocalRandom.current().nextInt(0, 2 + 1);
+                if(temp2 != temp) break;
+            }
+            if(temp2 == 0) System.out.println("> " + morse[temp] + "\n" + "> " + morse[i]);
+            else System.out.println("> " + morse[i] + "\n" + "> " + morse[temp]);
             String in = keyboard.nextLine();
             if(!in.equals(morse[i]))
             {
