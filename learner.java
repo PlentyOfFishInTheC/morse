@@ -54,10 +54,19 @@ class learner
             String in = keyboard.nextLine();
             if(!in.equals(morse[i]))
             {
-                System.out.printf(in + " is incorrect.");
-                if(!hard) System.out.printf("Try: " + morse[i] + "\n");
-                else System.out.printf("\n");
-                incorrect++;
+                if(in.equals(".... .. -. -"))
+                {
+                    System.out.println(morse[i].substring(0, morse[i].length()));
+                    i--;
+                }
+                else if(in.equals("-... .- -.-. -.-")) i-=2;
+                else
+                {
+                    System.out.printf(in + " is incorrect.");
+                    if(!hard) System.out.printf("Try: " + morse[i] + "\n");
+                    else System.out.printf("\n");
+                    incorrect++;
+                }
             }
         }
         System.out.println("Score: " + (number-incorrect)*100/number);
